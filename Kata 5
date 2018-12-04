@@ -1,0 +1,35 @@
+// 5: arrow functions - basics
+// To do: make all tests pass, leave the asserts unchanged!
+// Follow the hints of the failure messages!
+
+// created an arrow function
+describe('Arrow functions', function() {
+  it('are shorter to write, instead of `function(){}` write `() => {}`', function() {
+    var func = `() => {}`;
+    assert.equal('' + func, '() => {}');
+  });
+ 
+  // took curly brackets of return statement
+  it('instead `{}` use an expression, as return value', function() {
+    var func = () => 'I return too';
+    assert.equal(func(), 'I return too');
+  });
+  
+  // only one paramater I don't need parans
+  it('one parameter can be written without parens', () => {
+    var func = param => param -1;
+    assert.equal(func(25), 24);
+  });
+  
+  // Added another parameter to pass through both.
+  it('many params require parens', () => {
+    var func = (param, param1) => param + param1;
+    assert.equal(func(23, 42), 23+42);
+  });
+  
+  // wrapped the object in parens
+  it('the function body needs parens to return an object', () => {
+    var func = () => ({iAm: 'an object'});
+    assert.deepEqual(func(), {iAm: 'an object'});
+  });
+});
